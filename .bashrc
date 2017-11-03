@@ -128,3 +128,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+fp () {
+	local paz=$(find ~/.password-store/ -name "*.gpg"  | \
+		sed -r 's,(.*)\.password-store/(.*)\.gpg,\2,'   | \
+		fzf +m) 
+	[[ ! -z "$paz" ]] && echo $paz && EDITOR=vim pass $* $paz
+}
