@@ -1,0 +1,16 @@
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias lh='ls -lh'
+alias toph='htop'
+alias lll='ls | wc -l'
+alias less='less -S'
+alias zless='zless -S'
+alias tat='tmux a -t'
+alias tls='tmux ls'
+alias diff='colordiff -y'
+alias python='python3'
+alias rm='rm -vI --one-file-system'
+alias qall="ssh bas@asnl01155.intra.local 'qstat -u \*'"
+alias qqall="ssh bas@asnl01155.intra.local 'qstat -u \* -xml | tr '\''\n'\'' '\'' '\'' | sed '\''s#<job_list[^>]*>#\n#g'\''| sed '\''s#<[^>]*>##g'\'' | grep '\'' '\''| column -t'"
+alias did="vim +'normal Go' +'r!date' ~/did.txt"
