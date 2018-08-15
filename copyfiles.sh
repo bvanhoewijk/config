@@ -6,6 +6,7 @@ do
   if [ -f "${HOME}/.$FILE" ]; then
      echo "File ${HOME}/.$FILE exists."
      echo "cp ${HOME}/.$FILE ${HOME}/.$FILE.backup"
+     cp ${HOME}/.$FILE ${HOME}/.$FILE.backup
   fi
-  echo "cp $FILE ${HOME}/.$FILE"
+  cp $FILE ${HOME}/.$FILE
 done
