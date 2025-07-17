@@ -16,3 +16,4 @@ Install "z.sh" by copying the file somewhere in home and add it to the bashrc:
 . ~/z.sh
 ```
 
+Place the zshell theme here: `$ZSH_CUSTOM/themes/`
