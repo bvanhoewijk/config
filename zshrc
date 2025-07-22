@@ -105,6 +105,8 @@ plugins=(git conda conda-env virtualenv)
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.bash_aliases
 
+PATH="/home/binf/bas/.gem/ruby/3.4.0/bin:$PATH"
+
 __conda_setup="$('/home/binf/bas/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
