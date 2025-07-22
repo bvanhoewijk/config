@@ -24,10 +24,13 @@ Install "z.sh" by copying the file somewhere in home and add it to the bashrc:
 ```
 
 ## 3. Programming font
-I like the [hack font](https://github.com/source-foundry/Hack) for programming:
+I like the [hack font](https://github.com/source-foundry/Hack) for programming because of the clear distinction of `lIi|` and `oO0Q`.
 
 ![alt text](img/hack_font.png)
 
+Configure VSCode (`Ctrl + ,`):
+
+![alt text](img/vscode_code_font_change.png)
 
 
 ## 4. Setting up a pretty terminal
