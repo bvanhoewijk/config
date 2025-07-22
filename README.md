@@ -35,6 +35,10 @@ Configure VSCode (`Ctrl + ,`):
 
 ## 4. Setting up a pretty terminal
 
+Like this:
+*Screenshot:*
+![alt text](img/terminal_screenshot.png)
+
 ### 0. Install zshell first:
 ```bash
 sudo apt-get install zsh
@@ -58,10 +62,6 @@ It shows in one glance:
 - git branch and if there are changes in the repo
 - colorful ls
 - New commands on a different line
-
-*Screenshot:*
-![alt text](img/terminal_screenshot.png)
-
 
 
 ### 3. Install ruby & colorls
@@ -88,7 +88,7 @@ gem install --user-install colorls
 **NOTE:** `ls` is aliased in the bash_aliases file (`alias ls='colorls'`). To unset: `unalias ls` (or change the config).
 
 ### 4. Install a font
-To access settings in VSCode: "`Ctrl + ,`"
+To get the pretty icons in `colorls` we need to install a special font. To access settings in VSCode: "`Ctrl + ,`"
 
 ![alt text](img/vscode_font_change.png)
 
