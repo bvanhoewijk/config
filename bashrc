@@ -45,11 +45,41 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+######################## START BETTER TERMINAL
+PROMPT_DIRTRIM=3
+
+git_prompt() {
+    local branch dirty=""
+
+    git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
+
+    branch=$(git symbolic-ref --quiet --short HEAD 2>/dev/null)
+    [ -z "$branch" ] && branch=$(git rev-parse --short HEAD 2>/dev/null)
+
+    # Modified/staged files
+    if ! git diff --quiet --ignore-submodules -- 2>/dev/null ||
+       ! git diff --cached --quiet --ignore-submodules -- 2>/dev/null; then
+        dirty="*"
+
+    # Untracked files
+    elif [ -n "$(git ls-files --others --exclude-standard | head -n 1)" ]; then
+        dirty="*"
+    fi
+
+    if [ -n "$dirty" ]; then
+        printf ' \e[38;5;244mgit:\e[38;5;214m%s\e[38;5;196m*\e[0m' "$branch"
+    else
+        printf ' \e[38;5;244mgit:\e[38;5;214m%s\e[0m' "$branch"
+    fi
+}
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\033[38;5;45m\]╭─\[\033[0m\]\[\033[97m\][\[\033[38;5;39m\]${CONDA_DEFAULT_ENV:-base}\[\033[97m\]]\[\033[0m\] \[\033[01;32m\]\u@\h\[\033[0m\] \[\033[38;5;244m\]in\[\033[0m\] \[\033[01;34m\]\w\[\033[0m\]$(git_prompt)\n\[\033[38;5;45m\]╰─❯\[\033[0m\] '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$\n> '
+    PS1='╭─[${CONDA_DEFAULT_ENV:-base}] \u@\h in \w$(git_prompt)\n╰─❯ '
 fi
+
+######################## END BETTER TERMINAL
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
